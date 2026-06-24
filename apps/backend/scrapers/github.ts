@@ -45,6 +45,7 @@ export const scrapeGithub = async (username: string) => {
                 per_page: 100,
                 sort: "updated",
             },
+            timeout: 15_000,
         },
     );
 

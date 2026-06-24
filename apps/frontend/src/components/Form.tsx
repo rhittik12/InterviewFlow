@@ -10,7 +10,7 @@ export function Form() {
 
     const handleStartInterview = async () => {
         if (!githubUrl) {
-            toast("Please enter both Github URLs");
+            toast("Please enter Github URLs");
             return;
         }
 
