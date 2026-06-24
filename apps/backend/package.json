@@ -4,7 +4,8 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/cors": "^2.8.19"
   },
   "peerDependencies": {
     "typescript": "^5"
@@ -12,7 +13,10 @@
   "dependencies": {
     "@types/express": "^5.0.6",
     "axios": "^1.18.0",
+    "cors": "^2.8.6",
     "express": "^5.2.1",
+    "https-proxy-agent": "^9.1.0",
+    "proxy": "^4.1.0",
     "zod": "^4.4.3"
   }
 }

@@ -7,16 +7,15 @@ import { BACKEND_URL } from "@/lib/config";
 
 export function Form() {
     const [githubUrl, setGithubUrl] = useState("");
-    const [linkedinUrl, setLinkedinUrl] = useState("");
 
     const handleStartInterview = async () => {
-        if (!githubUrl || !linkedinUrl) {
-            toast("Please enter both Github and Linkedin URLs");
+        if (!githubUrl) {
+            toast("Please enter Github URLs");
             return;
         }
 
         try {
-            const response = await axios.post(`${BACKEND_URL}/api/v1/pre-interview`, { githubUrl, linkedinUrl });
+            const response = await axios.post(`${BACKEND_URL}/api/v1/pre-interview`, { githubUrl });
             console.log(response.data);
         } catch (error) {
             toast.error("Failed to start interview");
@@ -33,9 +32,6 @@ export function Form() {
                 </h2>
                 <div className="p-2">
                     <Input placeholder="Github Url" onChange={(e) => setGithubUrl(e.target.value)} />
-                </div>
-                <div className="p-2">
-                    <Input placeholder="Linkedin Url" onChange={(e) => setLinkedinUrl(e.target.value)} />
                 </div>
                 <div className="flex justify-center p-4">
                     <Button onClick={handleStartInterview}>Start Interview</Button>
