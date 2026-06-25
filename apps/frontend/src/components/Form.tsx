@@ -4,8 +4,10 @@ import { Input } from "./ui/input";
 import { toast } from "sonner";
 import axios from "axios";
 import { BACKEND_URL } from "@/lib/config";
+import { useNavigate } from "react-router-dom";
 
 export function Form() {
+    const navigate = useNavigate();
     const [githubUrl, setGithubUrl] = useState("");
 
     const handleStartInterview = async () => {
@@ -16,7 +18,7 @@ export function Form() {
 
         try {
             const response = await axios.post(`${BACKEND_URL}/api/v1/pre-interview`, { githubUrl });
-            console.log(response.data);
+            navigate("/interview");
         } catch (error) {
             toast.error("Failed to start interview");
             console.error(error);
